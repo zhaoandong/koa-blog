@@ -19,12 +19,10 @@ app.use(convert(logger()));
 app.use(convert(require('koa-static')(__dirname + '/public')));
 
 app.use(views(__dirname + '/views', {
-  extension: 'jade'
+  map: {
+    html: 'nunjucks'
+  }
 }));
-
-// app.use(views(__dirname + '/views-ejs', {
-//   extension: 'ejs'
-// }));
 
 
 // logger
