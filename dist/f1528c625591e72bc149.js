@@ -1,11 +1,10 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	var parentHotUpdateCallback = this["webpackHotUpdate"];
-/******/ 	this["webpackHotUpdate"] = 
-/******/ 	function webpackHotUpdateCallback(chunkId, moreModules) { // eslint-disable-line no-unused-vars
+/******/ 	this["webpackHotUpdate"] = function webpackHotUpdateCallback(chunkId, moreModules) { // eslint-disable-line no-unused-vars
 /******/ 		hotAddUpdateChunk(chunkId, moreModules);
 /******/ 		if(parentHotUpdateCallback) parentHotUpdateCallback(chunkId, moreModules);
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotDownloadUpdateChunk(chunkId) { // eslint-disable-line no-unused-vars
 /******/ 		var head = document.getElementsByTagName("head")[0];
 /******/ 		var script = document.createElement("script");
@@ -14,7 +13,7 @@
 /******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + hotCurrentHash + ".hot-update.js";
 /******/ 		head.appendChild(script);
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotDownloadManifest(callback) { // eslint-disable-line no-unused-vars
 /******/ 		if(typeof XMLHttpRequest === "undefined")
 /******/ 			return callback(new Error("No browser support"));
@@ -51,8 +50,7 @@
 /******/ 		};
 /******/ 	}
 /******/
-/******/ 	
-/******/ 	
+/******/
 /******/ 	// Copied from https://github.com/facebook/react/blob/bef45b0/src/shared/utils/canDefineProperty.js
 /******/ 	var canDefineProperty = false;
 /******/ 	try {
@@ -63,12 +61,12 @@
 /******/ 	} catch(x) {
 /******/ 		// IE will fail on defineProperty
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2403d8eab40fa4198a94"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f1528c625591e72bc149"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
-/******/ 	
+/******/
 /******/ 	function hotCreateRequire(moduleId) { // eslint-disable-line no-unused-vars
 /******/ 		var me = installedModules[moduleId];
 /******/ 		if(!me) return __webpack_require__;
@@ -106,7 +104,7 @@
 /******/ 				}
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		function ensure(chunkId, callback) {
 /******/ 			if(hotStatus === "ready")
 /******/ 				hotSetStatus("prepare");
@@ -117,7 +115,7 @@
 /******/ 				} finally {
 /******/ 					finishChunkLoading();
 /******/ 				}
-/******/ 	
+/******/
 /******/ 				function finishChunkLoading() {
 /******/ 					hotChunksLoading--;
 /******/ 					if(hotStatus === "prepare") {
@@ -141,7 +139,7 @@
 /******/ 		}
 /******/ 		return fn;
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotCreateModule(moduleId) { // eslint-disable-line no-unused-vars
 /******/ 		var hot = {
 /******/ 			// private stuff
@@ -150,7 +148,7 @@
 /******/ 			_selfAccepted: false,
 /******/ 			_selfDeclined: false,
 /******/ 			_disposeHandlers: [],
-/******/ 	
+/******/
 /******/ 			// Module API
 /******/ 			active: true,
 /******/ 			accept: function(dep, callback) {
@@ -183,7 +181,7 @@
 /******/ 				var idx = hot._disposeHandlers.indexOf(callback);
 /******/ 				if(idx >= 0) hot._disposeHandlers.splice(idx, 1);
 /******/ 			},
-/******/ 	
+/******/
 /******/ 			// Management API
 /******/ 			check: hotCheck,
 /******/ 			apply: hotApply,
@@ -198,22 +196,22 @@
 /******/ 				var idx = hotStatusHandlers.indexOf(l);
 /******/ 				if(idx >= 0) hotStatusHandlers.splice(idx, 1);
 /******/ 			},
-/******/ 	
+/******/
 /******/ 			//inherit from previous dispose call
 /******/ 			data: hotCurrentModuleData[moduleId]
 /******/ 		};
 /******/ 		return hot;
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	var hotStatusHandlers = [];
 /******/ 	var hotStatus = "idle";
-/******/ 	
+/******/
 /******/ 	function hotSetStatus(newStatus) {
 /******/ 		hotStatus = newStatus;
 /******/ 		for(var i = 0; i < hotStatusHandlers.length; i++)
 /******/ 			hotStatusHandlers[i].call(null, newStatus);
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	// while downloading
 /******/ 	var hotWaitingFiles = 0;
 /******/ 	var hotChunksLoading = 0;
@@ -221,15 +219,15 @@
 /******/ 	var hotRequestedFilesMap = {};
 /******/ 	var hotAvailibleFilesMap = {};
 /******/ 	var hotCallback;
-/******/ 	
+/******/
 /******/ 	// The update info
 /******/ 	var hotUpdate, hotUpdateNewHash;
-/******/ 	
+/******/
 /******/ 	function toModuleId(id) {
 /******/ 		var isNumber = (+id) + "" === id;
 /******/ 		return isNumber ? +id : id;
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotCheck(apply, callback) {
 /******/ 		if(hotStatus !== "idle") throw new Error("check() is only allowed in idle status");
 /******/ 		if(typeof apply === "function") {
@@ -249,14 +247,14 @@
 /******/ 				callback(null, null);
 /******/ 				return;
 /******/ 			}
-/******/ 	
+/******/
 /******/ 			hotRequestedFilesMap = {};
 /******/ 			hotAvailibleFilesMap = {};
 /******/ 			hotWaitingFilesMap = {};
 /******/ 			for(var i = 0; i < update.c.length; i++)
 /******/ 				hotAvailibleFilesMap[update.c[i]] = true;
 /******/ 			hotUpdateNewHash = update.h;
-/******/ 	
+/******/
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
@@ -270,7 +268,7 @@
 /******/ 			}
 /******/ 		});
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotAddUpdateChunk(chunkId, moreModules) { // eslint-disable-line no-unused-vars
 /******/ 		if(!hotAvailibleFilesMap[chunkId] || !hotRequestedFilesMap[chunkId])
 /******/ 			return;
@@ -284,7 +282,7 @@
 /******/ 			hotUpdateDownloaded();
 /******/ 		}
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotEnsureUpdateChunk(chunkId) {
 /******/ 		if(!hotAvailibleFilesMap[chunkId]) {
 /******/ 			hotWaitingFilesMap[chunkId] = true;
@@ -294,7 +292,7 @@
 /******/ 			hotDownloadUpdateChunk(chunkId);
 /******/ 		}
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotUpdateDownloaded() {
 /******/ 		hotSetStatus("ready");
 /******/ 		var callback = hotCallback;
@@ -312,7 +310,7 @@
 /******/ 			callback(null, outdatedModules);
 /******/ 		}
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotApply(options, callback) {
 /******/ 		if(hotStatus !== "ready") throw new Error("apply() is only allowed in ready status");
 /******/ 		if(typeof options === "function") {
@@ -328,11 +326,11 @@
 /******/ 				if(err) throw err;
 /******/ 			};
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		function getAffectedStuff(module) {
 /******/ 			var outdatedModules = [module];
 /******/ 			var outdatedDependencies = {};
-/******/ 	
+/******/
 /******/ 			var queue = outdatedModules.slice();
 /******/ 			while(queue.length > 0) {
 /******/ 				var moduleId = queue.pop();
@@ -363,10 +361,10 @@
 /******/ 					queue.push(parentId);
 /******/ 				}
 /******/ 			}
-/******/ 	
+/******/
 /******/ 			return [outdatedModules, outdatedDependencies];
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		function addAllToSet(a, b) {
 /******/ 			for(var i = 0; i < b.length; i++) {
 /******/ 				var item = b[i];
@@ -374,7 +372,7 @@
 /******/ 					a.push(item);
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// at begin all updates modules are outdated
 /******/ 		// the "outdated" status can propagate to parents if they don't accept the children
 /******/ 		var outdatedDependencies = {};
@@ -405,7 +403,7 @@
 /******/ 				}
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// Store self accepted outdated modules to require them later by the module system
 /******/ 		var outdatedSelfAcceptedModules = [];
 /******/ 		for(var i = 0; i < outdatedModules.length; i++) {
@@ -416,7 +414,7 @@
 /******/ 					errorHandler: installedModules[moduleId].hot._selfAccepted
 /******/ 				});
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// Now in "dispose" phase
 /******/ 		hotSetStatus("dispose");
 /******/ 		var queue = outdatedModules.slice();
@@ -424,9 +422,9 @@
 /******/ 			var moduleId = queue.pop();
 /******/ 			var module = installedModules[moduleId];
 /******/ 			if(!module) continue;
-/******/ 	
+/******/
 /******/ 			var data = {};
-/******/ 	
+/******/
 /******/ 			// Call dispose handlers
 /******/ 			var disposeHandlers = module.hot._disposeHandlers;
 /******/ 			for(var j = 0; j < disposeHandlers.length; j++) {
@@ -434,13 +432,13 @@
 /******/ 				cb(data);
 /******/ 			}
 /******/ 			hotCurrentModuleData[moduleId] = data;
-/******/ 	
+/******/
 /******/ 			// disable module (this disables requires from this module)
 /******/ 			module.hot.active = false;
-/******/ 	
+/******/
 /******/ 			// remove module from cache
 /******/ 			delete installedModules[moduleId];
-/******/ 	
+/******/
 /******/ 			// remove "parents" references from all children
 /******/ 			for(var j = 0; j < module.children.length; j++) {
 /******/ 				var child = installedModules[module.children[j]];
@@ -451,7 +449,7 @@
 /******/ 				}
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// remove outdated dependency from module children
 /******/ 		for(var moduleId in outdatedDependencies) {
 /******/ 			if(Object.prototype.hasOwnProperty.call(outdatedDependencies, moduleId)) {
@@ -464,19 +462,19 @@
 /******/ 				}
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// Not in "apply" phase
 /******/ 		hotSetStatus("apply");
-/******/ 	
+/******/
 /******/ 		hotCurrentHash = hotUpdateNewHash;
-/******/ 	
+/******/
 /******/ 		// insert new code
 /******/ 		for(var moduleId in appliedUpdate) {
 /******/ 			if(Object.prototype.hasOwnProperty.call(appliedUpdate, moduleId)) {
 /******/ 				modules[moduleId] = appliedUpdate[moduleId];
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// call accept handlers
 /******/ 		var error = null;
 /******/ 		for(var moduleId in outdatedDependencies) {
@@ -501,7 +499,7 @@
 /******/ 				}
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// Load self accepted modules
 /******/ 		for(var i = 0; i < outdatedSelfAcceptedModules.length; i++) {
 /******/ 			var item = outdatedSelfAcceptedModules[i];
@@ -521,13 +519,13 @@
 /******/ 					error = err;
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// handle errors in accept handlers and self accepted module load
 /******/ 		if(error) {
 /******/ 			hotSetStatus("fail");
 /******/ 			return callback(error);
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		hotSetStatus("idle");
 /******/ 		callback(null, outdatedModules);
 /******/ 	}
@@ -583,9 +581,9 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(4);
-	__webpack_require__(18);
-	module.exports = __webpack_require__(16);
+	__webpack_require__(8);
+	__webpack_require__(3);
+	module.exports = __webpack_require__(18);
 
 
 /***/ },
@@ -785,6 +783,191 @@
 /* 2 */
 /***/ function(module, exports) {
 
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(__resourceQuery, module) {/*eslint-env browser*/
+	/*global __resourceQuery __webpack_public_path__*/
+	
+	var options = {
+	  path: "/__webpack_hmr",
+	  timeout: 20 * 1000,
+	  overlay: true,
+	  reload: false,
+	  log: true,
+	  warn: true
+	};
+	if (true) {
+	  var querystring = __webpack_require__(7);
+	  var overrides = querystring.parse(__resourceQuery.slice(1));
+	  if (overrides.path) options.path = overrides.path;
+	  if (overrides.timeout) options.timeout = overrides.timeout;
+	  if (overrides.overlay) options.overlay = overrides.overlay !== 'false';
+	  if (overrides.reload) options.reload = overrides.reload !== 'false';
+	  if (overrides.noInfo && overrides.noInfo !== 'false') {
+	    options.log = false;
+	  }
+	  if (overrides.quiet && overrides.quiet !== 'false') {
+	    options.log = false;
+	    options.warn = false;
+	  }
+	  if (overrides.dynamicPublicPath) {
+	    options.path = __webpack_require__.p + options.path;
+	  }
+	}
+	
+	if (typeof window === 'undefined') {
+	  // do nothing
+	} else if (typeof window.EventSource === 'undefined') {
+	  console.warn(
+	    "webpack-hot-middleware's client requires EventSource to work. " +
+	    "You should include a polyfill if you want to support this browser: " +
+	    "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events#Tools"
+	  );
+	} else {
+	  connect(window.EventSource);
+	}
+	
+	function connect(EventSource) {
+	  var source = new EventSource(options.path);
+	  var lastActivity = new Date();
+	
+	  source.onopen = handleOnline;
+	  source.onmessage = handleMessage;
+	  source.onerror = handleDisconnect;
+	
+	  var timer = setInterval(function() {
+	    if ((new Date() - lastActivity) > options.timeout) {
+	      handleDisconnect();
+	    }
+	  }, options.timeout / 2);
+	
+	  function handleOnline() {
+	    if (options.log) console.log("[HMR] connected");
+	    lastActivity = new Date();
+	  }
+	
+	  function handleMessage(event) {
+	    lastActivity = new Date();
+	    if (event.data == "\uD83D\uDC93") {
+	      return;
+	    }
+	    try {
+	      processMessage(JSON.parse(event.data));
+	    } catch (ex) {
+	      if (options.warn) {
+	        console.warn("Invalid HMR message: " + event.data + "\n" + ex);
+	      }
+	    }
+	  }
+	
+	  function handleDisconnect() {
+	    clearInterval(timer);
+	    source.close();
+	    setTimeout(function() { connect(EventSource); }, options.timeout);
+	  }
+	
+	}
+	
+	var reporter;
+	// the reporter needs to be a singleton on the page
+	// in case the client is being used by mutliple bundles
+	// we only want to report once.
+	// all the errors will go to all clients
+	var singletonKey = '__webpack_hot_middleware_reporter__';
+	if (typeof window !== 'undefined' && !window[singletonKey]) {
+	  reporter = window[singletonKey] = createReporter();
+	}
+	
+	function createReporter() {
+	  var strip = __webpack_require__(17);
+	
+	  var overlay;
+	  if (typeof document !== 'undefined' && options.overlay) {
+	    overlay = __webpack_require__(15);
+	  }
+	
+	  return {
+	    problems: function(type, obj) {
+	      if (options.warn) {
+	        console.warn("[HMR] bundle has " + type + ":");
+	        obj[type].forEach(function(msg) {
+	          console.warn("[HMR] " + strip(msg));
+	        });
+	      }
+	      if (overlay && type !== 'warnings') overlay.showProblems(type, obj[type]);
+	    },
+	    success: function() {
+	      if (overlay) overlay.clear();
+	    },
+	    useCustomOverlay: function(customOverlay) {
+	      overlay = customOverlay;
+	    }
+	  };
+	}
+	
+	var processUpdate = __webpack_require__(16);
+	
+	var customHandler;
+	var subscribeAllHandler;
+	function processMessage(obj) {
+	  switch(obj.action) {
+	    case "building":
+	      if (options.log) console.log("[HMR] bundle rebuilding");
+	      break;
+	    case "built":
+	      if (options.log) {
+	        console.log(
+	          "[HMR] bundle " + (obj.name ? obj.name + " " : "") +
+	          "rebuilt in " + obj.time + "ms"
+	        );
+	      }
+	      // fall through
+	    case "sync":
+	      if (obj.errors.length > 0) {
+	        if (reporter) reporter.problems('errors', obj);
+	      } else {
+	        if (reporter) {
+	          if (obj.warnings.length > 0) reporter.problems('warnings', obj);
+	          reporter.success();
+	        }
+	        processUpdate(obj.hash, obj.modules, options);
+	      }
+	      break;
+	    default:
+	      if (customHandler) {
+	        customHandler(obj);
+	      }
+	  }
+	
+	  if (subscribeAllHandler) {
+	    subscribeAllHandler(obj);
+	  }
+	}
+	
+	if (module) {
+	  module.exports = {
+	    subscribeAll: function subscribeAll(handler) {
+	      subscribeAllHandler = handler;
+	    },
+	    subscribe: function subscribe(handler) {
+	      customHandler = handler;
+	    },
+	    useCustomOverlay: function useCustomOverlay(customOverlay) {
+	      if (reporter) reporter.useCustomOverlay(customOverlay);
+	    }
+	  };
+	}
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, "?path=/__webpack_hmr&timeout=20000", __webpack_require__(10)(module)))
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
 	module.exports = ansiHTML;
 	
 	// Reference to https://github.com/sindresorhus/ansi-regex
@@ -954,18 +1137,172 @@
 	ansiHTML.reset();
 
 /***/ },
-/* 3 */
+/* 5 */
 /***/ function(module, exports) {
 
+	// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+	
 	'use strict';
 	
-	module.exports = function () {
-		return (/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g
-		);
+	// If obj.hasOwnProperty has been overridden, then calling
+	// obj.hasOwnProperty(prop) will break.
+	// See: https://github.com/joyent/node/issues/1707
+	
+	function hasOwnProperty(obj, prop) {
+	  return Object.prototype.hasOwnProperty.call(obj, prop);
+	}
+	
+	module.exports = function (qs, sep, eq, options) {
+	  sep = sep || '&';
+	  eq = eq || '=';
+	  var obj = {};
+	
+	  if (typeof qs !== 'string' || qs.length === 0) {
+	    return obj;
+	  }
+	
+	  var regexp = /\+/g;
+	  qs = qs.split(sep);
+	
+	  var maxKeys = 1000;
+	  if (options && typeof options.maxKeys === 'number') {
+	    maxKeys = options.maxKeys;
+	  }
+	
+	  var len = qs.length;
+	  // maxKeys <= 0 means that we should not limit keys count
+	  if (maxKeys > 0 && len > maxKeys) {
+	    len = maxKeys;
+	  }
+	
+	  for (var i = 0; i < len; ++i) {
+	    var x = qs[i].replace(regexp, '%20'),
+	        idx = x.indexOf(eq),
+	        kstr,
+	        vstr,
+	        k,
+	        v;
+	
+	    if (idx >= 0) {
+	      kstr = x.substr(0, idx);
+	      vstr = x.substr(idx + 1);
+	    } else {
+	      kstr = x;
+	      vstr = '';
+	    }
+	
+	    k = decodeURIComponent(kstr);
+	    v = decodeURIComponent(vstr);
+	
+	    if (!hasOwnProperty(obj, k)) {
+	      obj[k] = v;
+	    } else if (Array.isArray(obj[k])) {
+	      obj[k].push(v);
+	    } else {
+	      obj[k] = [obj[k], v];
+	    }
+	  }
+	
+	  return obj;
 	};
 
 /***/ },
-/* 4 */
+/* 6 */
+/***/ function(module, exports) {
+
+	// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+	
+	'use strict';
+	
+	var stringifyPrimitive = function (v) {
+	  switch (typeof v) {
+	    case 'string':
+	      return v;
+	
+	    case 'boolean':
+	      return v ? 'true' : 'false';
+	
+	    case 'number':
+	      return isFinite(v) ? v : '';
+	
+	    default:
+	      return '';
+	  }
+	};
+	
+	module.exports = function (obj, sep, eq, name) {
+	  sep = sep || '&';
+	  eq = eq || '=';
+	  if (obj === null) {
+	    obj = undefined;
+	  }
+	
+	  if (typeof obj === 'object') {
+	    return Object.keys(obj).map(function (k) {
+	      var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
+	      if (Array.isArray(obj[k])) {
+	        return obj[k].map(function (v) {
+	          return ks + encodeURIComponent(stringifyPrimitive(v));
+	        }).join(sep);
+	      } else {
+	        return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
+	      }
+	    }).join(sep);
+	  }
+	
+	  if (!name) return '';
+	  return encodeURIComponent(stringifyPrimitive(name)) + eq + encodeURIComponent(stringifyPrimitive(obj));
+	};
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.decode = exports.parse = __webpack_require__(5);
+	exports.encode = exports.stringify = __webpack_require__(6);
+
+/***/ },
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -980,7 +1317,7 @@
 	   * :email: devel@amvtek.com
 	 */
 	
-	var PolyfillEventSource = __webpack_require__(5).EventSource;
+	var PolyfillEventSource = __webpack_require__(9).EventSource;
 	module.exports = PolyfillEventSource;
 	
 	// Add EventSource to window if it is missing...
@@ -992,7 +1329,7 @@
 	}
 
 /***/ },
-/* 5 */
+/* 9 */
 /***/ function(module, exports) {
 
 	/*
@@ -1606,18 +1943,33 @@
 	})(this);
 
 /***/ },
-/* 6 */
+/* 10 */
+/***/ function(module, exports) {
+
+	module.exports = function (module) {
+		if (!module.webpackPolyfill) {
+			module.deprecate = function () {};
+			module.paths = [];
+			// module.parent = undefined by default
+			module.children = [];
+			module.webpackPolyfill = 1;
+		}
+		return module;
+	};
+
+/***/ },
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = {
-	  XmlEntities: __webpack_require__(8),
-	  Html4Entities: __webpack_require__(7),
+	  XmlEntities: __webpack_require__(13),
+	  Html4Entities: __webpack_require__(12),
 	  Html5Entities: __webpack_require__(1),
 	  AllHtmlEntities: __webpack_require__(1)
 	};
 
 /***/ },
-/* 7 */
+/* 12 */
 /***/ function(module, exports) {
 
 	var HTML_ALPHA = ['apos', 'nbsp', 'iexcl', 'cent', 'pound', 'curren', 'yen', 'brvbar', 'sect', 'uml', 'copy', 'ordf', 'laquo', 'not', 'shy', 'reg', 'macr', 'deg', 'plusmn', 'sup2', 'sup3', 'acute', 'micro', 'para', 'middot', 'cedil', 'sup1', 'ordm', 'raquo', 'frac14', 'frac12', 'frac34', 'iquest', 'Agrave', 'Aacute', 'Acirc', 'Atilde', 'Auml', 'Aring', 'Aelig', 'Ccedil', 'Egrave', 'Eacute', 'Ecirc', 'Euml', 'Igrave', 'Iacute', 'Icirc', 'Iuml', 'ETH', 'Ntilde', 'Ograve', 'Oacute', 'Ocirc', 'Otilde', 'Ouml', 'times', 'Oslash', 'Ugrave', 'Uacute', 'Ucirc', 'Uuml', 'Yacute', 'THORN', 'szlig', 'agrave', 'aacute', 'acirc', 'atilde', 'auml', 'aring', 'aelig', 'ccedil', 'egrave', 'eacute', 'ecirc', 'euml', 'igrave', 'iacute', 'icirc', 'iuml', 'eth', 'ntilde', 'ograve', 'oacute', 'ocirc', 'otilde', 'ouml', 'divide', 'Oslash', 'ugrave', 'uacute', 'ucirc', 'uuml', 'yacute', 'thorn', 'yuml', 'quot', 'amp', 'lt', 'gt', 'oelig', 'oelig', 'scaron', 'scaron', 'yuml', 'circ', 'tilde', 'ensp', 'emsp', 'thinsp', 'zwnj', 'zwj', 'lrm', 'rlm', 'ndash', 'mdash', 'lsquo', 'rsquo', 'sbquo', 'ldquo', 'rdquo', 'bdquo', 'dagger', 'dagger', 'permil', 'lsaquo', 'rsaquo', 'euro', 'fnof', 'alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta', 'iota', 'kappa', 'lambda', 'mu', 'nu', 'xi', 'omicron', 'pi', 'rho', 'sigma', 'tau', 'upsilon', 'phi', 'chi', 'psi', 'omega', 'alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta', 'iota', 'kappa', 'lambda', 'mu', 'nu', 'xi', 'omicron', 'pi', 'rho', 'sigmaf', 'sigma', 'tau', 'upsilon', 'phi', 'chi', 'psi', 'omega', 'thetasym', 'upsih', 'piv', 'bull', 'hellip', 'prime', 'prime', 'oline', 'frasl', 'weierp', 'image', 'real', 'trade', 'alefsym', 'larr', 'uarr', 'rarr', 'darr', 'harr', 'crarr', 'larr', 'uarr', 'rarr', 'darr', 'harr', 'forall', 'part', 'exist', 'empty', 'nabla', 'isin', 'notin', 'ni', 'prod', 'sum', 'minus', 'lowast', 'radic', 'prop', 'infin', 'ang', 'and', 'or', 'cap', 'cup', 'int', 'there4', 'sim', 'cong', 'asymp', 'ne', 'equiv', 'le', 'ge', 'sub', 'sup', 'nsub', 'sube', 'supe', 'oplus', 'otimes', 'perp', 'sdot', 'lceil', 'rceil', 'lfloor', 'rfloor', 'lang', 'rang', 'loz', 'spades', 'clubs', 'hearts', 'diams'];
@@ -1767,7 +2119,7 @@
 	module.exports = Html4Entities;
 
 /***/ },
-/* 8 */
+/* 13 */
 /***/ function(module, exports) {
 
 	var ALPHA_INDEX = {
@@ -1925,184 +2277,18 @@
 	module.exports = XmlEntities;
 
 /***/ },
-/* 9 */
+/* 14 */
 /***/ function(module, exports) {
 
-	// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
-	
 	'use strict';
 	
-	// If obj.hasOwnProperty has been overridden, then calling
-	// obj.hasOwnProperty(prop) will break.
-	// See: https://github.com/joyent/node/issues/1707
-	
-	function hasOwnProperty(obj, prop) {
-	  return Object.prototype.hasOwnProperty.call(obj, prop);
-	}
-	
-	module.exports = function (qs, sep, eq, options) {
-	  sep = sep || '&';
-	  eq = eq || '=';
-	  var obj = {};
-	
-	  if (typeof qs !== 'string' || qs.length === 0) {
-	    return obj;
-	  }
-	
-	  var regexp = /\+/g;
-	  qs = qs.split(sep);
-	
-	  var maxKeys = 1000;
-	  if (options && typeof options.maxKeys === 'number') {
-	    maxKeys = options.maxKeys;
-	  }
-	
-	  var len = qs.length;
-	  // maxKeys <= 0 means that we should not limit keys count
-	  if (maxKeys > 0 && len > maxKeys) {
-	    len = maxKeys;
-	  }
-	
-	  for (var i = 0; i < len; ++i) {
-	    var x = qs[i].replace(regexp, '%20'),
-	        idx = x.indexOf(eq),
-	        kstr,
-	        vstr,
-	        k,
-	        v;
-	
-	    if (idx >= 0) {
-	      kstr = x.substr(0, idx);
-	      vstr = x.substr(idx + 1);
-	    } else {
-	      kstr = x;
-	      vstr = '';
-	    }
-	
-	    k = decodeURIComponent(kstr);
-	    v = decodeURIComponent(vstr);
-	
-	    if (!hasOwnProperty(obj, k)) {
-	      obj[k] = v;
-	    } else if (Array.isArray(obj[k])) {
-	      obj[k].push(v);
-	    } else {
-	      obj[k] = [obj[k], v];
-	    }
-	  }
-	
-	  return obj;
+	module.exports = function () {
+		return (/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g
+		);
 	};
 
 /***/ },
-/* 10 */
-/***/ function(module, exports) {
-
-	// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
-	
-	'use strict';
-	
-	var stringifyPrimitive = function (v) {
-	  switch (typeof v) {
-	    case 'string':
-	      return v;
-	
-	    case 'boolean':
-	      return v ? 'true' : 'false';
-	
-	    case 'number':
-	      return isFinite(v) ? v : '';
-	
-	    default:
-	      return '';
-	  }
-	};
-	
-	module.exports = function (obj, sep, eq, name) {
-	  sep = sep || '&';
-	  eq = eq || '=';
-	  if (obj === null) {
-	    obj = undefined;
-	  }
-	
-	  if (typeof obj === 'object') {
-	    return Object.keys(obj).map(function (k) {
-	      var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
-	      if (Array.isArray(obj[k])) {
-	        return obj[k].map(function (v) {
-	          return ks + encodeURIComponent(stringifyPrimitive(v));
-	        }).join(sep);
-	      } else {
-	        return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
-	      }
-	    }).join(sep);
-	  }
-	
-	  if (!name) return '';
-	  return encodeURIComponent(stringifyPrimitive(name)) + eq + encodeURIComponent(stringifyPrimitive(obj));
-	};
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.decode = exports.parse = __webpack_require__(9);
-	exports.encode = exports.stringify = __webpack_require__(10);
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var ansiRegex = __webpack_require__(3)();
-	
-	module.exports = function (str) {
-		return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
-	};
-
-/***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*eslint-env browser*/
@@ -2122,13 +2308,14 @@
 	  right: 0,
 	  top: 0,
 	  bottom: 0,
-	  overflow: 'auto'
+	  overflow: 'auto',
+	  dir: 'ltr'
 	};
 	for (var key in styles) {
 	  clientOverlay.style[key] = styles[key];
 	}
 	
-	var ansiHTML = __webpack_require__(2);
+	var ansiHTML = __webpack_require__(4);
 	var colors = {
 	  reset: ['transparent', 'transparent'],
 	  black: '181818',
@@ -2143,7 +2330,7 @@
 	};
 	ansiHTML.setColors(colors);
 	
-	var Entities = __webpack_require__(6).AllHtmlEntities;
+	var Entities = __webpack_require__(11).AllHtmlEntities;
 	var entities = new Entities();
 	
 	exports.showProblems = function showProblems(type, lines) {
@@ -2177,7 +2364,7 @@
 	}
 
 /***/ },
-/* 14 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2307,194 +2494,23 @@
 	};
 
 /***/ },
-/* 15 */
-/***/ function(module, exports) {
-
-	module.exports = function (module) {
-		if (!module.webpackPolyfill) {
-			module.deprecate = function () {};
-			module.paths = [];
-			// module.parent = undefined by default
-			module.children = [];
-			module.webpackPolyfill = 1;
-		}
-		return module;
-	};
-
-/***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(17);
-
-/***/ },
-/* 17 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
+	'use strict';
+	
+	var ansiRegex = __webpack_require__(14)();
+	
+	module.exports = function (str) {
+		return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
+	};
 
 /***/ },
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(__resourceQuery, module) {/*eslint-env browser*/
-	/*global __resourceQuery*/
-	
-	var options = {
-	  path: "/__webpack_hmr",
-	  timeout: 20 * 1000,
-	  overlay: true,
-	  reload: false,
-	  log: true,
-	  warn: true
-	};
-	if (true) {
-	  var querystring = __webpack_require__(11);
-	  var overrides = querystring.parse(__resourceQuery.slice(1));
-	  if (overrides.path) options.path = overrides.path;
-	  if (overrides.timeout) options.timeout = overrides.timeout;
-	  if (overrides.overlay) options.overlay = overrides.overlay !== 'false';
-	  if (overrides.reload) options.reload = overrides.reload !== 'false';
-	  if (overrides.noInfo && overrides.noInfo !== 'false') {
-	    options.log = false;
-	  }
-	  if (overrides.quiet && overrides.quiet !== 'false') {
-	    options.log = false;
-	    options.warn = false;
-	  }
-	}
-	
-	if (typeof window === 'undefined') {
-	  // do nothing
-	} else if (typeof window.EventSource === 'undefined') {
-	  console.warn(
-	    "webpack-hot-middleware's client requires EventSource to work. " +
-	    "You should include a polyfill if you want to support this browser: " +
-	    "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events#Tools"
-	  );
-	} else {
-	  connect(window.EventSource);
-	}
-	
-	function connect(EventSource) {
-	  var source = new EventSource(options.path);
-	  var lastActivity = new Date();
-	
-	  source.onopen = handleOnline;
-	  source.onmessage = handleMessage;
-	  source.onerror = handleDisconnect;
-	
-	  var timer = setInterval(function() {
-	    if ((new Date() - lastActivity) > options.timeout) {
-	      handleDisconnect();
-	    }
-	  }, options.timeout / 2);
-	
-	  function handleOnline() {
-	    if (options.log) console.log("[HMR] connected");
-	    lastActivity = new Date();
-	  }
-	
-	  function handleMessage(event) {
-	    lastActivity = new Date();
-	    if (event.data == "\uD83D\uDC93") {
-	      return;
-	    }
-	    try {
-	      processMessage(JSON.parse(event.data));
-	    } catch (ex) {
-	      if (options.warn) {
-	        console.warn("Invalid HMR message: " + event.data + "\n" + ex);
-	      }
-	    }
-	  }
-	
-	  function handleDisconnect() {
-	    clearInterval(timer);
-	    source.close();
-	    setTimeout(function() { connect(EventSource); }, options.timeout);
-	  }
-	
-	}
-	
-	var reporter;
-	// the reporter needs to be a singleton on the page
-	// in case the client is being used by mutliple bundles
-	// we only want to report once.
-	// all the errors will go to all clients
-	var singletonKey = '__webpack_hot_middleware_reporter__';
-	if (typeof window !== 'undefined' && !window[singletonKey]) {
-	  reporter = window[singletonKey] = createReporter();
-	}
-	
-	function createReporter() {
-	  var strip = __webpack_require__(12);
-	
-	  var overlay;
-	  if (typeof document !== 'undefined' && options.overlay) {
-	    overlay = __webpack_require__(13);
-	  }
-	
-	  return {
-	    problems: function(type, obj) {
-	      if (options.warn) {
-	        console.warn("[HMR] bundle has " + type + ":");
-	        obj[type].forEach(function(msg) {
-	          console.warn("[HMR] " + strip(msg));
-	        });
-	      }
-	      if (overlay && type !== 'warnings') overlay.showProblems(type, obj[type]);
-	    },
-	    success: function() {
-	      if (overlay) overlay.clear();
-	    },
-	    useCustomOverlay: function(customOverlay) {
-	      overlay = customOverlay;
-	    }
-	  };
-	}
-	
-	var processUpdate = __webpack_require__(14);
-	
-	var customHandler;
-	function processMessage(obj) {
-	  if (obj.action == "building") {
-	    if (options.log) console.log("[HMR] bundle rebuilding");
-	  } else if (obj.action == "built") {
-	    if (options.log) {
-	      console.log(
-	        "[HMR] bundle " + (obj.name ? obj.name + " " : "") +
-	        "rebuilt in " + obj.time + "ms"
-	      );
-	    }
-	    if (obj.errors.length > 0) {
-	      if (reporter) reporter.problems('errors', obj);
-	    } else {
-	      if (reporter) {
-	        if (obj.warnings.length > 0) reporter.problems('warnings', obj);
-	        reporter.success();
-	      }
-	
-	      processUpdate(obj.hash, obj.modules, options);
-	    }
-	  } else if (customHandler) {
-	    customHandler(obj);
-	  }
-	}
-	
-	if (module) {
-	  module.exports = {
-	    subscribe: function subscribe(handler) {
-	      customHandler = handler;
-	    },
-	    useCustomOverlay: function useCustomOverlay(customOverlay) {
-	      if (reporter) reporter.useCustomOverlay(customOverlay);
-	    }
-	  };
-	}
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, "?path=/__webpack_hmr&timeout=20000", __webpack_require__(15)(module)))
+	__webpack_require__(2);
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=2403d8eab40fa4198a94.js.map
+//# sourceMappingURL=f1528c625591e72bc149.js.map

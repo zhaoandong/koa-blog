@@ -27,7 +27,7 @@ module.exports = Object.assign({}, {
     module:{
         loaders:[{
             test:/\.js$/,
-            loader:"babel",
+            loader:"babel-loader",
         },{
             test: /\.scss$/,
             loader: ExtractTextPlugin.extract(['css','sass'])

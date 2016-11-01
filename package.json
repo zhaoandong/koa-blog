@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "koa": "./node_modules/.bin/runkoa bin/www",
+    "dev":"NODE_ENV='dev' ./node_modules/.bin/runkoa bin/www",
     "pm2": "pm2 start bin/run ",
     "stop": "pm2 stop bin/run",
     "test": "./node_modules/.bin/mocha -u bdd",
@@ -11,8 +12,10 @@
   "dependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
     "babel-polyfill": "^6.16.0",
     "co": "^4.6.0",
+    "css-loader": "^0.25.0",
     "debug": "^2.2.0",
     "koa": "^2.0.0",
     "koa-bodyparser": "^2.0.1",
@@ -23,11 +26,12 @@
     "koa-router": "^7.0.0",
     "koa-static": "^1.5.2",
     "koa-views": "^5.0.1",
-    "koa-webpack-dev-middleware": "^1.2.2",
+    "koa-webpack-dev-middleware": "^1.2.1",
     "koa-webpack-hot-middleware": "^1.0.3",
     "node-sass-middleware": "^0.9.8",
     "nunjucks": "^2.5.2",
     "runkoa": "^1.5.2",
+    "sass-loader": "^4.0.2",
     "webpack": "^1.13.2"
   },
   "devDependencies": {

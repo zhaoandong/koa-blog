@@ -9,6 +9,9 @@ var webpack = require("webpack"),
     // ExtractTextPlugin = require("extract-text-webpack-plugin");
     var buildName = '[hash]';
 
+
+fs.emptyDirSync('./dist');
+
 var config = Object.assign({}, {
     devtool: "source-map",
     devServer: "../assets/dist",
@@ -18,7 +21,7 @@ var config = Object.assign({}, {
         new webpack.NoErrorsPlugin(),
         new ExtractTextPlugin(buildName+'.css'),
         new AssetsWebpackPlugin({
-            filename: 'assets1.json',
+            filename: 'assets.json',
             prettyPrint: true,
             fullPath: true,
             processOutput: function (assets) {
