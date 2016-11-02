@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "scripts": {
     "koa": "./node_modules/.bin/runkoa bin/www",
-    "dev":"NODE_ENV='dev' ./node_modules/.bin/runkoa bin/www",
-    "pm2": "pm2 start bin/run ",
+    "dev": "NODE_ENV='dev' ./node_modules/.bin/runkoa bin/www",
+    "start": "pm2 start bin/run ",
     "stop": "pm2 stop bin/run",
     "test": "./node_modules/.bin/mocha -u bdd",
-    "fe": "node build/index.js"
+    "fe": "node build/index.js",
+    "publish": "node build/gulp-publish.js"
   },
   "dependencies": {
     "babel": "^6.5.2",
@@ -17,6 +18,7 @@
     "co": "^4.6.0",
     "css-loader": "^0.25.0",
     "debug": "^2.2.0",
+    "gulp": "^3.9.1",
     "koa": "^2.0.0",
     "koa-bodyparser": "^2.0.1",
     "koa-convert": "^1.2.0",
