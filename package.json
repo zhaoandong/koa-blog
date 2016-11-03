@@ -8,7 +8,7 @@
     "stop": "pm2 stop bin/run",
     "test": "./node_modules/.bin/mocha -u bdd",
     "fe": "node build/index.js",
-    "publish": "node build/gulp-publish.js"
+    "publish": "node build/index.js && gulp"
   },
   "dependencies": {
     "babel": "^6.5.2",
@@ -19,6 +19,9 @@
     "css-loader": "^0.25.0",
     "debug": "^2.2.0",
     "gulp": "^3.9.1",
+    "gulp-qn": "^0.1.1",
+    "gulp-rev-collector": "^1.0.5",
+    "gulp-rev-qn": "^1.0.5",
     "koa": "^2.0.0",
     "koa-bodyparser": "^2.0.1",
     "koa-convert": "^1.2.0",
@@ -32,6 +35,7 @@
     "koa-webpack-hot-middleware": "^1.0.3",
     "node-sass-middleware": "^0.9.8",
     "nunjucks": "^2.5.2",
+    "run-sequence": "^1.2.2",
     "runkoa": "^1.5.2",
     "sass-loader": "^4.0.2",
     "webpack": "^1.13.2"

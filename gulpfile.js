@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const webpack = require('gulp-webpack');
+// const webpack = require('gulp-webpack');
 const qn = require('gulp-qn');
 // MD5戳
 const rev = require('gulp-rev-qn');
@@ -7,21 +7,20 @@ const revCollector = require('gulp-rev-collector');
 const runSequence = require('run-sequence');
 
 const qiniu_options = {
-  accessKey: 'xxx',
-  secretKey: 'xxx',
-  bucket: 'xxx',
-  domain: 'http://xxx.com'
+  accessKey: 'wcn9gOsIsryAPaMZQDlj5LzWDYXsLyjxf2xFql0_',
+  secretKey: '2tR63w-1yQCF9pWA2hgKwXDxshZBPY3Asl164bYb',
+  bucket: 'myspace',
+  domain: 'http://zhaoandong.com'
 };
 gulp.task('publish-js', function () {
-  return gulp.src(['./build/js/*.js'])
-    .pipe(rev())
-    .pipe(gulp.dest('./build/js'))
+  return gulp.src(['./dist/*.js'])
+    // .pipe(rev())
+    .pipe(gulp.dest('./dist'))
     .pipe(qn({
-      qiniu: qiniu_options,
-      prefix: 'js'
+      qiniu: qiniu_options    
     }))
     .pipe(rev.manifest())
-    .pipe(gulp.dest('./build/rev/js'));
+    .pipe(gulp.dest('./dist'));
 });
 // gulp.task('publish-font-img', function () {
 //   return gulp.src(['./build/js/*.svg','./build/js/*.gif','./build/js/*.woff2','./build/js/*.ttf','./build/js/*.eot','./build/js/*.woff'])
@@ -30,17 +29,15 @@ gulp.task('publish-js', function () {
 //       prefix: 'js'
 //     }));
 // });
-// gulp.task('publish-css', function () {
-//   return gulp.src(['./build/js/*.css'])
-//     .pipe(rev())
-//     .pipe(gulp.dest('./build/js'))
-//     .pipe(qn({
-//       qiniu: qiniu_options,
-//       prefix: 'css'
-//     }))
-//     .pipe(rev.manifest())
-//     .pipe(gulp.dest('./build/rev/css'));
-// });
+gulp.task('publish-css', function () {
+  return gulp.src(['./dist/*.css'])
+    .pipe(gulp.dest('./dist'))
+    .pipe(qn({
+      qiniu: qiniu_options    
+    }))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest('./dist'));
+});
 // gulp.task('publish-html', function () {
 //   return gulp.src(['./build/rev/**/*.json', './build/views/*.html'])
 //     .pipe(revCollector({
@@ -52,7 +49,6 @@ gulp.task('publish-js', function () {
 // });
 gulp.task('default',function(callback){
   runSequence(
-    ['publish-css','publish-js','publish-font-img'],
-    'publish-html',
+    ['publish-js','publish-css'],
     callback);
 });
