@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>测试</title>
-    <link rel='stylesheet' href='{{bundle.index_css}}' />
-  </head>
-  <body>
-    <h1>{{title}}</h1>
-    <p>just for test{{ss}}23212222</p>
-    <script src='{{bundle.index_js}}'></script>
-  </body>
-</html>
+{% extends "./views/common/layout.html" %}
+
+{% block header %}
+	<link rel='stylesheet' href='{{bundle.index_css}}' />
+{% endblock %}
+
+{% block body %}
+		<p>我是测试demo</p>
+{% endblock %}
+
+{% block footer %}
+		<script src='{{bundle.index_js}}'></script>		
+{% endblock %}
+

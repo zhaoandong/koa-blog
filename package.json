@@ -2,7 +2,7 @@
   "name": "koa2-demo",
   "version": "0.1.0",
   "scripts": {
-    "dev": "NODE_ENV='dev' node app.js",
+    "dev": "NODE_ENV='dev' nodemon app.js",
     "start": "pm2 start app.js ",
     "stop": "pm2 stop app.js",
     "test": "./node_modules/.bin/mocha -u bdd",
