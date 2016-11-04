@@ -3,7 +3,7 @@ var app = require("./lib/app");
 
 // module.exports = app;
 
-var http = require('http');
+// var http = require('http');
 
 /**
  * Create HTTP server.

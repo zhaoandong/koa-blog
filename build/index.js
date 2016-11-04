@@ -35,10 +35,7 @@ var config = Object.assign({}, {
         })
     ],
     entry: {
-      'index': [
-        'eventsource-polyfill',
-        'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-        './src/js/index.js']
+      'index': './src/js/index.js'
     },
     output: {
         // path: path.join(assets, "dist"),
