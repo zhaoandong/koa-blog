@@ -2,13 +2,12 @@
   "name": "koa2-demo",
   "version": "0.1.0",
   "scripts": {
-    "koa": "./node_modules/.bin/runkoa bin/www",
     "dev": "NODE_ENV='dev' node app.js",
     "start": "pm2 start app.js ",
     "stop": "pm2 stop app.js",
     "test": "./node_modules/.bin/mocha -u bdd",
     "fe": "node build/index.js",
-    "publish": "node build/index.js && gulp"
+    "publish": "node build/webpack.config.pro.js && gulp"
   },
   "dependencies": {
     "babel": "^6.5.2",

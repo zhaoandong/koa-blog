@@ -22,13 +22,7 @@ gulp.task('publish-js', function () {
     .pipe(rev.manifest())
     .pipe(gulp.dest('./dist'));
 });
-// gulp.task('publish-font-img', function () {
-//   return gulp.src(['./build/js/*.svg','./build/js/*.gif','./build/js/*.woff2','./build/js/*.ttf','./build/js/*.eot','./build/js/*.woff'])
-//     .pipe(qn({
-//       qiniu: qiniu_options,
-//       prefix: 'js'
-//     }));
-// });
+
 gulp.task('publish-css', function () {
   return gulp.src(['./dist/*.css'])
     .pipe(gulp.dest('./dist'))
@@ -38,15 +32,7 @@ gulp.task('publish-css', function () {
     .pipe(rev.manifest())
     .pipe(gulp.dest('./dist'));
 });
-// gulp.task('publish-html', function () {
-//   return gulp.src(['./build/rev/**/*.json', './build/views/*.html'])
-//     .pipe(revCollector({
-//       dirReplacements: {
-//         '/js/': ''
-//       }
-//     }))
-//     .pipe(gulp.dest('./build/views'));
-// });
+
 gulp.task('default',function(callback){
   runSequence(
     ['publish-js','publish-css'],
