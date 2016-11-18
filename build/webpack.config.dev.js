@@ -17,7 +17,7 @@ module.exports = Object.assign({}, {
       'index': [
         'eventsource-polyfill',
         'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-        './src/js/index.js']
+        './src/index.jsx']
     },
     output: {
         path: "/public/",
@@ -39,6 +39,14 @@ module.exports = Object.assign({}, {
         {
             test: /\.tpl$/,
             loader: 'html'
-        }]
+        },
+        {
+            test: /\.jsx$/,
+            loader: 'babel',
+            query: {
+                presets: ['react', 'es2015']
+            }
+        }
+        ]
     }
 });

@@ -35,7 +35,7 @@ var config = Object.assign({}, {
         })
     ],
     entry: {
-      'index': './src/js/index.js'
+      'index': './src/index.jsx'
     },
     output: {
         // path: path.join(assets, "dist"),
@@ -60,7 +60,15 @@ var config = Object.assign({}, {
         {
             test: /\.tpl$/,
             loader: 'html'
-        }]
+        },
+        {
+            test: /\.jsx$/,
+            loader: 'babel',
+            query: {
+                presets: ['react', 'es2015']
+            }
+        }
+        ]
     }
 });
 
