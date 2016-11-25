@@ -23,6 +23,7 @@
     "gulp-qn": "^0.1.1",
     "gulp-rev-collector": "^1.0.5",
     "gulp-rev-qn": "^1.0.5",
+    "json-loader": "^0.5.4",
     "koa": "^2.0.0",
     "koa-bodyparser": "^2.0.1",
     "koa-convert": "^1.2.0",

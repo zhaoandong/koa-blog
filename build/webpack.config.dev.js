@@ -25,28 +25,33 @@ module.exports = Object.assign({}, {
         publicPath: "/public/"
     },
     module:{
-        loaders:[{
-            test:/\.js$/,
-            loader:"babel-loader",
-        },{
-            test: /\.scss$/,
-            loader: ExtractTextPlugin.extract(['css','sass'])
-        },
-        {
-            test: /\.(png|jpg|jpeg)(\?.*)?$/,
-            loader: 'url?limit=5120'
-        },
-        {
-            test: /\.tpl$/,
-            loader: 'html'
-        },
-        {
-            test: /\.jsx$/,
-            loader: 'babel',
-            query: {
-                presets: ['react', 'es2015']
+        loaders:[
+            {
+                test:/\.js$/,
+                loader:"babel-loader",
+            },{
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract(['css','sass'])
+            },
+            {
+                test: /\.(png|jpg|jpeg)(\?.*)?$/,
+                loader: 'url?limit=5120'
+            },
+            {
+                test: /\.tpl$/,
+                loader: 'html'
+            },
+            {
+                test: /\.jsx$/,
+                loader: 'babel',
+                query: {
+                    presets: ['react', 'es2015']
+                }
+            },
+            {
+                test: /\.json$/,
+                loader: 'json'
             }
-        }
         ]
     }
 });

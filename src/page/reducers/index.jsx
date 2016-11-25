@@ -1,18 +1,52 @@
-export default function(state = { count: 0 }, action){
+import { combineReducers } from 'redux'
+import product from './product.jsx'
+import onIncreaseClick from './init.jsx'
 
-    const count = state.count;
+export default combineReducers ({
+  product,
+  onIncreaseClick
+})
 
-    switch (action.type) {
 
-        case 'increase':
+
+
+
+
+
+
+// const initialState = {
+
+//   count: 9,
+//   product: []
+
+// }
+
+// export default function onIncreaseClick (state = initialState, action){
+
+//     const count = state.count;
+
+//     switch (action.type) {
+
+//         case 'increase':
         
-            return {count: count + 3}
+//             return Object.assign({}, state ,{
+            
+//             	count : count + 3
+            
+//             })
 
-        default:
+//         case 'test':
 
-            return state
+//             return Object.assign({}, state ,{
+            
+//             	count : count - 3
+            
+//             })
+//         default:
 
-    }
+//             return state
+
+//     }
 
 
-}
+// }
