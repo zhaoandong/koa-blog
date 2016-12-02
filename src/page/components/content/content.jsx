@@ -1,5 +1,6 @@
 import React from 'react';
 import AppleBasket from '../applebasket/appleBasket.jsx';
+import Cart from '../Cart/index.jsx';
 import './content.scss';
 
 class Content extends React.Component {
@@ -10,6 +11,7 @@ class Content extends React.Component {
             <div className = 'content'>
                 <div className = 'inner'>
                     <AppleBasket />
+                    <Cart />
                 </div>
             </div>
         );

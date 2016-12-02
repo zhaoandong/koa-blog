@@ -19,13 +19,6 @@ export default function onIncreaseClick (state = initialState, action){
             	count : count + 3
             
             })
-        case 'test':
-        
-            return Object.assign({}, state ,{
-            
-            	count : count - 2
-            
-            })
 
         default:
 

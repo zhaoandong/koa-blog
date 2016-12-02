@@ -7,7 +7,7 @@ import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import todoApp from '../reducers/index.jsx'
 import { createStore, applyMiddleware } from 'redux'
-import { getAll } from '../actions/appleActions.jsx'
+import { getAll, actions } from '../actions/index.jsx'
 
 const middleware = process.env.NODE_ENV === 'production' ?
   [ thunk ] :
@@ -26,7 +26,9 @@ class App extends React.Component {
     render() {
         return (
             <Provider store={store}>
-                <Content />
+                <div className='main'>
+                    <Content />
+                </div>
             </Provider>
         );
     }

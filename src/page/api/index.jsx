@@ -3,8 +3,6 @@
  */
 import _products from './product.json'
 
-
-
 const TIMEOUT = 100
 
 export default {
