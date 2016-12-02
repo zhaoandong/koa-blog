@@ -17,4 +17,4 @@ var app = require("./lib/app");
 
 // server.listen(3000);
 
-app.listen(3002);
+app.listen(3000);
