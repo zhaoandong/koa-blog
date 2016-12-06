@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './page/containers/app.jsx';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+import App from './vendors/index.jsx'
 
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('container')
-);
+// ReactDOM.render(
+//     <App />,
+//     document.getElementById('container')
+// );
 

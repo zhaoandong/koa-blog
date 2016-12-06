@@ -6,11 +6,69 @@
 {% endblock %}
 
 {% block body %}
-		<div id='container'></div>
+	<div class="wrapper">
+
+	  <header class="main-header">
+	    <!-- Logo -->
+	    <a href="index2.html" class="logo">
+	      <!-- mini logo for sidebar mini 50x50 pixels -->
+	      <span class="logo-mini">叶落无痕</span>
+	      <!-- logo for regular state and mobile devices -->
+	      <span class="logo-lg">叶落无痕</span>
+	    </a>
+	    <!-- Header Navbar: style can be found in header.less -->
+	    <nav class="navbar navbar-static-top">
+	      <!-- Sidebar toggle button-->
+	      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+	        <span class="sr-only">Toggle navigation</span>
+	      </a>
+
+	    </nav>
+	  </header>
+
+	  <aside class="main-sidebar">
+
+	    <section class="sidebar">
+
+	      <div class="user-panel">
+	        <div class="pull-left image">
+	          <img src="http://ofyfg9y7t.bkt.clouddn.com/mmexport1460649355674.jpg" class="img-circle" alt="User Image">
+	        </div>
+	        <div class="pull-left info">
+	          <p>Alexander Pierce</p>
+	        </div>
+	      </div>
+
+	      <ul class="sidebar-menu">
+	        <li class="treeview">
+	          <a href="#">
+	            <i class="fa fa-pie-chart"></i>
+	            <span>Charts</span>
+	            <span class="pull-right-container">
+	              <i class="fa fa-angle-left pull-right"></i>
+	            </span>
+	          </a>
+	          <ul class="treeview-menu">
+	            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
+	            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
+	            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
+	            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </section>
+	  </aside>
+
+
+	  <div class="content-wrapper">
+	    <section class="content">
+
+	    </section>
+	  </div>
+	</div>
 {% endblock %}
 
 {% block footer %}
-	<script type="text/javascript" src='https://res.hjfile.cn/lib/??jq/1.8.3/jquery.min.js'></script>
-	<script src='{{bundle.index_js}}'></script>		
+	
 {% endblock %}
 
