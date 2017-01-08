@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../components/header/header.jsx'
-import Nav from '../components/nav/nav.jsx'
+import Sidebar from '../components/Sidebar/index.jsx'
 import Content from '../components/content/content.jsx'
 // import { Provider } from 'react-redux'
 // import thunk from 'redux-thunk'
@@ -35,10 +35,8 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className='main'>
-                <Header />
-                <Nav />
-                <Content />
+            <div className="ant-layout-aside">
+                <Sidebar />
             </div>
         );
     }

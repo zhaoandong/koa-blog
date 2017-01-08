@@ -6,6 +6,7 @@ var env = NODE_ENV === 'dev' ? 'dev' : 'product';
 
 module.exports = {
 
-	'env': env
+	'env': env,
+	'PORT': 3000
 
 }
