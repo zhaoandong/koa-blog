@@ -58,6 +58,10 @@ var config = Object.assign({}, {
             loader: 'url?limit=5120'
         },
         {
+            test: /\.json$/,
+            loader: 'json'
+        },
+        {
             test: /\.tpl$/,
             loader: 'html'
         },
