@@ -1,5 +1,6 @@
-
+var http = require("http");
 var app = require("./lib/app");
+var host = app.callback();
 
 // module.exports = app;
 
@@ -18,3 +19,5 @@ var app = require("./lib/app");
 // server.listen(3000);
 
 app.listen(3000);
+
+// http.createServer(host).listen(3000);
