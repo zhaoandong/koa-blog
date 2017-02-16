@@ -5,6 +5,7 @@ import './content.scss';
 
 class Content extends React.Component {
 
+	
 
     render() {
         return (

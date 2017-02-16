@@ -6,7 +6,7 @@ import { Router, Route, hashHistory ,browserHistory} from 'react-router'
 ReactDOM.render(
 	<Router history={hashHistory}>
 		<Route path="/" component={Home} />
-		<Route path="/content" component={Content}/>
+		<Route path="/content/:id" component={Content}/>
 	</Router>,
     document.getElementById('container')
 );

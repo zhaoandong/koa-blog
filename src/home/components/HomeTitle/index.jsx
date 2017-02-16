@@ -4,9 +4,21 @@ import { hashHistory } from 'react-router';
 
 class HomeTitle extends React.Component {
 
+     constructor(props) {
+
+        super(props);
+
+        this.state = {
+
+            data: this.props.data
+
+        }
+     
+     }
+
     gotoContent(){
 
-        hashHistory.push('/content')
+        hashHistory.push('/content/1')
 
     }
 
@@ -14,8 +26,8 @@ class HomeTitle extends React.Component {
 
         return (
             <div className="ant-home-title ant-card" onClick={this.gotoContent}>
-                <h2>我是标题我是标题我是标题我是标题我是标题</h2>
-                <p>我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述我是描述</p>
+                <h2>{this.state.data["title"]}</h2>
+                <p>{this.state.data["desc"]}</p>
             </div>
         );
     }

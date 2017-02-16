@@ -2,7 +2,7 @@
   "name": "koa2-demo",
   "version": "0.1.0",
   "scripts": {
-    "dev": "NODE_ENV='dev' nodemon app.js",
+    "dev": "NODE_ENV='dev' nodemon --harmony-async-await app.js",
     "product": "nodemon app.js ",
     "start": "pm2 start app.js ",
     "stop": "pm2 stop app.js",
@@ -20,6 +20,7 @@
     "babel-polyfill": "^6.16.0",
     "bootstrap": "^3.3.7",
     "co": "^4.6.0",
+    "co-view": "0.0.1",
     "css-loader": "^0.25.0",
     "debug": "^2.2.0",
     "gulp": "^3.9.1",
@@ -52,6 +53,7 @@
     "run-sequence": "^1.2.2",
     "runkoa": "^1.5.2",
     "sass-loader": "^4.0.2",
+    "sequelize": "^3.29.0",
     "webpack": "^1.13.2"
   },
   "devDependencies": {

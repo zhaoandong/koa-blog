@@ -5,6 +5,12 @@ var router = require("./lib/router"),
     all = router.all;
 
 get("/", "home.index");
+get("/api/allTitles", "home.getAllTitles");
+get("/api/content", "home.getContent");
+
+
+
+get("/admin", "admin.index");
 
 
 
