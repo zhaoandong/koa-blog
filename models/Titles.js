@@ -13,6 +13,8 @@ const Titles = config.db.define('title', {
 });
 
 
+
+
 module.exports = {
 
 	set: function (argument) {
@@ -28,16 +30,9 @@ module.exports = {
 
 	},
 
-	getAll: async function() {
+	getAll: function() {
 
-	  try {
-	    await Promise.reject('出错了');
-	  
-	  } catch(e) {
-	  
-	  }
-	  
-	  return await Titles.findAll();
+		return Titles.findAll();
 	
 	}
 

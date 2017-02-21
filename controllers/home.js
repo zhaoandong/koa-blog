@@ -12,7 +12,7 @@ module.exports = {
     getAllTitles: function* (){
 
     	let all = yield Titles.getAll()
-			this.renderJSON(all)
+		this.renderJSON(all)
 
     },
 
