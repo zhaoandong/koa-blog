@@ -1,5 +1,5 @@
-var Titles = require('../models/Titles');
-var Contents = require('../models/Contents');
+var Titles = require('../models/titles');
+var Contents = require('../models/contents');
 
 module.exports = {
     index: function* (scope) {
@@ -19,7 +19,7 @@ module.exports = {
     getContent: function* (){
 
     	let all = yield Contents.getContentById()
-			this.renderJSON(all)
+		this.renderJSON(all)
 
     }
 };

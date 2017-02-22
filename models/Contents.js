@@ -15,17 +15,9 @@ const Contents = config.db.define('content', {
 module.exports = {
 
 
-	getContentById: async function() {
+	getContentById: function() {
 
-	  try {
-
-	    await Promise.reject('出错了');
-	  
-	  } catch(e) {
-	  
-	  }
-	  
-	  return await Contents.findOne();
+	  return  Contents.findOne();
 	
 	}
 
