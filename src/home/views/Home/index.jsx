@@ -1,9 +1,9 @@
 import React from 'react'
 import './index.scss'
 import Header from '../../components/header/header.jsx'
-import Sidebar from '../../components/Sidebar/index.jsx'
 import Content from '../../components/content/content.jsx'
 import HomeTitle from '../../components/HomeTitle/index.jsx'
+import '../../../css/index.scss'
 
 
 class Home extends React.Component {
@@ -43,7 +43,6 @@ class Home extends React.Component {
 
 		return (
 			<div className="ant-layout-aside">
-				 <Sidebar />
 					  <div className="ant-layout-main">
 						<Header />
 						 <div className="ant-layout-container">

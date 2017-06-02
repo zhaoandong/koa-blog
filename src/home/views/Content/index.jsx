@@ -60,7 +60,6 @@ class Home extends React.Component {
 
     return (
         <div className="ant-layout-aside">
-            <Sidebar />
 	        <div className="ant-layout-main">
 	        	<Header />
 	          <div className="ant-layout-container">
