@@ -23,6 +23,7 @@
     "co-view": "0.0.1",
     "css-loader": "^0.25.0",
     "debug": "^2.2.0",
+    "file-loader": "^0.9.0",
     "gulp": "^3.9.1",
     "gulp-qn": "^0.1.1",
     "gulp-rev-collector": "^1.0.5",
@@ -54,6 +55,7 @@
     "runkoa": "^1.5.2",
     "sass-loader": "^4.0.2",
     "sequelize": "^3.29.0",
+    "url-loader": "^0.5.8",
     "webpack": "^1.13.2"
   },
   "devDependencies": {
