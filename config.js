@@ -13,7 +13,7 @@ var db = new Sequelize(dbconfig.database, dbconfig.username, dbconfig.password, 
     pool: {
         max: 5,
         min: 0,
-        idle: 30000
+        idle: 30
     }
 });
 
