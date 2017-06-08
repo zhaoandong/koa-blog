@@ -8,9 +8,6 @@ import HomeTitle from '../../components/HomeTitle/index.jsx'
 import { Spin } from 'antd'
 
 
-//var input = '# This is a header\n\nAnd this is a paragraph\n\n# This is a header\n\nAnd this is a paragraph # This is a header\n\nAnd this is a paragraph # This is a header\n\nAnd this is a paragraph # This is a header\n\nAnd this is a paragraph  # This is a header\n\nAnd this is a paragraph';
-//let test ='# This is a header\n\nAnd this is a paragraph\n\n# This is a header\n\nAnd this is a paragraph # This is a header\n\nAnd this is a paragraph # This is a header\n\nAnd this is a paragraph # This is a header\n\nAnd this is a paragraph  # This is a header\n\nAnd this is a paragraph'
-
 class Home extends React.Component {
 	constructor(props) {
 		
@@ -54,7 +51,6 @@ class Home extends React.Component {
 	}
 
   render() {
-
 
 		let mainComopent = this.state.data ? 	<ReactMarkdown source={this.state.data} /> : <Spin size="large" /> ;
 

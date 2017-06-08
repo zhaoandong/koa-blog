@@ -19,7 +19,6 @@ class Header extends React.Component {
                         <Menu.Item key="setting:3">注销</Menu.Item>
                     </SubMenu>
                     <Menu.Item key="mail">
-                    <Icon type="question" />帮助
                     </Menu.Item>
                 </Menu>
             </div>
