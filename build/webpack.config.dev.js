@@ -17,7 +17,11 @@ module.exports = Object.assign({}, {
       'index': [
         'eventsource-polyfill',
         'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-        './src/index.jsx']
+        './src/index.jsx'],
+      'admin': [
+        'eventsource-polyfill',
+        'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+        './src/admin.jsx']
     },
     output: {
         path: "/public/",

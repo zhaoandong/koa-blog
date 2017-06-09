@@ -1,1 +1,48 @@
-qwkewq;k
+{% extends "./views/common/admin.html" %}
+
+{% block header %}
+  <link rel='stylesheet' href='{{bundle.admin_css}}' />
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+   <table class="table table-bordered">
+    <caption>边框表格布局</caption>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>文章title</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tanmay</td>
+        <td>Bangalore</td>
+        <td>
+          <button type="button" class="btn btn-primary">修改</button>
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary">
+              <input type="radio" name="options" id="option1"> 显示
+            </label>
+            <label class="btn btn-primary">
+              <input type="radio" name="options" id="option2"> 隐藏
+            </label>
+          </div>        
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+<script type="text/javascript" src='{{bundle.admin_js}}'></script>
+<!--   <script type="text/javascript" src='{{bundle.index_js}}'></script> -->
+  
+{% endblock %}
